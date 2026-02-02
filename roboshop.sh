@@ -13,6 +13,7 @@ do
     --query 'Instances[0].InstanceId' \
     --output text )
 
+
    if [ $instance == "frontend" ]; then
       IP=$(
        aws ec2 describe-instances \
@@ -27,12 +28,12 @@ do
       --query 'Reservations[].Instances[].PrivateIpAddress' \
       --output text
 
-      )
+    )
 
    fi
 
 
 
-  echo "IP Address: $IP"
+   echo "IP Address: $IP"
 
 done
