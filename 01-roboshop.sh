@@ -3,7 +3,7 @@
 SG_ID="sg-0963b9b26e0964ab9"
 AMI_ID="ami-0220d79f3f480ecf5"
 DOMAIN_NAME="multicloudcomputing.online"
-ZONE_ID="Z00951673I2OYCZYMUOPO"
+ZONE_ID="Z06200861550ZVGB1AF5Q"
 
 
 for instance in $@
