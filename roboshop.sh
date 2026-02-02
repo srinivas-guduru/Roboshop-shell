@@ -2,6 +2,8 @@
 
 SG_ID="sg-0963b9b26e0964ab9"
 AMI_ID="ami-0220d79f3f480ecf5"
+ZONE_ID="Z050Z06200861550ZVGB1AF5Q"
+DOMAIN_NAME="multicloudcomputing.online "
 
 for instance in $@
 do
@@ -20,6 +22,7 @@ do
             --query 'Reservations[].Instances[].PublicIpAddress' \
             --output text
         )
+        RECORD_NAME="$DOMAIN_NAME" 
     else
         IP=$(
             aws ec2 describe-instances \
@@ -27,8 +30,7 @@ do
             --query 'Reservations[].Instances[].PrivateIpAddress' \
             --output text
         )
-        
+        RECORD_NAME="$instance.$DOMAIN_NAME"
     fi
 
-       echo "IP Address: $IP"
-    done
+    echo "IP Address: $IP"
