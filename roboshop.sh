@@ -13,21 +13,21 @@ do
     --query 'Instances[0].InstanceId' \
     --output text )
 
-   if  [ $instance == "fornted" ]; then
+   if [ $instance == "forntend" ]; then
       IP=$(
-       aws ec2 decribe-instance \
+       aws ec2 describe-instances \
       --instance-ids $INSTANCE_ID \
       --query 'Reservations[].instances[].PublicIpAddress' \
       --output text
-         )
+        )
    else
       IP=$(
-       aws ec2 decribe-instance \
-      --instnance-ids $INSTANCE_ID \
+       aws ec2 describe-instances \
+      --instance-ids $INSTANCE_ID \
       --query 'Reservations[].instances[].PrivateIpAddress'\
       --output text
-          )
+        )
    fi
 
-  echo "IP Adress: $IP"
+  echo "IP Address: $IP"
 done
